@@ -1,6 +1,8 @@
 import time
 import curses
-def boot_system():
+stdscr = curses.initscr()
+
+def boot_system(stdscr):
     print("Starting system boot...")
     time.sleep(0.3)
     print("Analyzing processor speed...")
@@ -34,6 +36,8 @@ def boot_system():
     print("Launching user interface...")
     time.sleep(0.3)
     print("System boot complete!")
+    stdscr.refresh()
 # Call the function to start the system boot
-boot_system()
+curses.wrapper(boot_system)
 stdscr.clear()
+
